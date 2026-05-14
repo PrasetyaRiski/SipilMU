@@ -1,0 +1,10 @@
+FIX MOBILE HEADER V3
+
+Perubahan:
+1. Mengembalikan basis CSS ke file asli agar patch lama yang bertumpuk tidak ikut terbawa.
+2. Mengganti logo header menjadi sipilmu-icon.png agar tidak terlalu lebar di layar HP.
+3. Header mobile dibuat dengan CSS Grid: kiri untuk logo/judul, kanan untuk toggle tema dan tombol menu.
+4. Bottom navigation dinonaktifkan karena menjadi sumber tampilan menumpuk pada layar kecil.
+5. Mobile panel tetap tersedia melalui tombol hamburger.
+
+Jika browser masih menampilkan layout lama, bersihkan cache atau buka dengan mode incognito.

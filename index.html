@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="SipilMU adalah kalkulator konstruksi berbasis AHSP untuk menghitung kebutuhan material, tenaga kerja, alat, volume pekerjaan, dan estimasi biaya bangunan." name="description"/>
+<title>SipilMU - Kalkulator Material Bangunan dan AHSP</title>
+<link href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="header">
+<nav class="navbar">
+<a aria-label="SipilMU Beranda" class="brand" href="index.html">
+<img alt="Logo SipilMU" decoding="async" fetchpriority="high" height="50" src="sipilmu-icon.png" width="50"/>
+<span class="brand-text"><strong>SipilMU</strong><span>Kalkulator Konstruksi</span></span>
+</a>
+<div aria-label="Navigasi utama" class="nav-links"><a class="active" href="index.html">Beranda</a><a class="" href="index.html#kalkulator">Kalkulator</a><a class="" href="menu/riwayat.html">Riwayat</a><a class="" href="menu/tentang.html">Tentang</a><a class="" href="menu/kontak.html">Kontak</a></div>
+<div class="nav-actions">
+<button aria-label="Ganti mode gelap atau terang" class="icon-btn" data-theme-toggle="" type="button"><i class="bi bi-circle-half"></i></button>
+<button aria-expanded="false" aria-label="Buka menu" class="mobile-menu-btn" id="mobileMenuBtn" type="button"><i class="bi bi-list"></i></button>
+</div>
+</nav>
+<div class="mobile-panel" id="mobilePanel"><a class="active" href="index.html"><i class="bi bi-house"></i>Beranda</a><a class="" href="index.html#kalkulator"><i class="bi bi-grid"></i>Kalkulator</a><a class="" href="menu/riwayat.html"><i class="bi bi-clock-history"></i>Riwayat</a><a class="" href="menu/tentang.html"><i class="bi bi-info-circle"></i>Tentang</a><a class="" href="menu/kontak.html"><i class="bi bi-envelope"></i>Kontak</a></div>
+<nav aria-label="Navigasi bawah mobile" class="bottom-nav"><a class="active" href="index.html"><i class="bi bi-house"></i><span>Beranda</span></a><a class="" href="index.html#kalkulator"><i class="bi bi-grid"></i><span>Kalkulator</span></a><a class="" href="menu/riwayat.html"><i class="bi bi-clock-history"></i><span>Riwayat</span></a><a class="" href="menu/tentang.html"><i class="bi bi-info-circle"></i><span>Tentang</span></a><a class="" href="menu/kontak.html"><i class="bi bi-envelope"></i><span>Kontak</span></a></nav>
+</header>
+<main>
+<section class="hero">
+<div class="container-wide hero-grid">
+<div class="hero-copy">
+<span class="eyebrow"><i class="bi bi-stars"></i> Kalkulator konstruksi berbasis AHSP</span>
+<h1>Hitung Material Bangunan dengan Cepat dan Praktis</h1>
+<p>SipilMU membantu pengguna umum, mahasiswa teknik sipil, tukang, kontraktor kecil, dan pemilik rumah menghitung kebutuhan bahan, tenaga kerja, alat, volume pekerjaan, dan estimasi biaya dari satu tempat.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#kalkulator"><i class="bi bi-calculator"></i> Mulai Hitung</a>
+<a class="btn btn-secondary" href="#kalkulator"><i class="bi bi-grid"></i> Lihat Kalkulator</a>
+</div>
+<label class="hero-search" for="calculatorSearch">
+<i class="bi bi-search"></i>
+<input id="calculatorSearch" placeholder="Cari kalkulator, contoh: beton, pipa, pintu, sanitair" type="search"/>
+</label>
+</div>
+<div aria-label="Statistik SipilMU" class="hero-panel">
+<div class="mini-stat"><span>21</span><p>menu kalkulator aktif</p></div>
+<div class="mini-stat"><span>AHSP</span><p>mode koefisien PERMEN PUPR No. 1 Tahun 2022</p></div>
+<div class="mini-stat"><span>288</span><p>item pekerjaan dari spreadsheet</p></div>
+<div class="mini-stat accent"><span>PDF</span><p>simpan riwayat, bagikan WhatsApp, dan cetak hasil</p></div>
+</div>
+</div>
+</section>
+<section class="section-pad" id="kalkulator">
+<div class="container-wide">
+<div class="section-heading">
+<span class="eyebrow"><i class="bi bi-grid"></i> Menu kalkulator</span>
+<h2>Pilih kalkulator sesuai pekerjaan bangunan.</h2>
+<p>Gunakan pencarian atau kategori untuk menemukan kalkulator yang dibutuhkan. Setiap halaman tetap memakai rumus dan data yang sudah ada.</p>
+</div>
+<div aria-label="Filter kategori kalkulator" class="category-row"><button class="category-chip active" data-category-filter="Semua" type="button">Semua</button><button class="category-chip" data-category-filter="AHSP" type="button">AHSP</button><button class="category-chip" data-category-filter="Struktur" type="button">Struktur</button><button class="category-chip" data-category-filter="Dinding" type="button">Dinding</button><button class="category-chip" data-category-filter="Finishing" type="button">Finishing</button><button class="category-chip" data-category-filter="Sanitair" type="button">Sanitair</button><button class="category-chip" data-category-filter="Elektrikal" type="button">Elektrikal</button></div>
+<div class="tool-grid" id="toolGrid">
+<a class="tool-card" data-category="AHSP" data-search="semua ahsp umum koefisien pupr harga satuan" data-tool-card="" href="menu/ahsp.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-table"></i></div>
+<span class="tool-badge">AHSP</span>
+</div>
+<h3>AHSP Umum</h3>
+<p>Semua 288 item pekerjaan dari sheet ANALISA untuk kebutuhan bahan, tenaga, alat, dan estimasi biaya.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="AHSP" data-search="persiapan pagar steger ijuk panel beton" data-tool-card="" href="menu/persiapan.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-signpost-2"></i></div>
+<span class="tool-badge">AHSP</span>
+</div>
+<h3>Persiapan dan Pagar</h3>
+<p>Steger, pagar, panel beton, dan lapisan ijuk. Cocok untuk pekerjaan awal proyek.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Struktur" data-search="beton struktur bekisting wiremesh pracetak pondasi kolom balok plat" data-tool-card="" href="menu/struktur-beton.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-building"></i></div>
+<span class="tool-badge">Struktur</span>
+</div>
+<h3>Struktur Beton</h3>
+<p>Beton, bekisting, wiremesh, dan beton pracetak dalam satu kelompok struktur.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Struktur" data-search="beton semen pasir kerikil mutu k100 k225 k300 cor" data-tool-card="" href="menu/betonsemen.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-layers"></i></div>
+<span class="tool-badge">Struktur</span>
+</div>
+<h3>Beton Mutu</h3>
+<p>Hitung volume beton dari panjang, lebar, dan tebal untuk mutu K100 sampai K300.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Struktur" data-search="bekisting pondasi sloof kolom balok plat shearwall cetakan" data-tool-card="" href="menu/bekisting.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-bounding-box"></i></div>
+<span class="tool-badge">Struktur</span>
+</div>
+<h3>Bekisting</h3>
+<p>Pekerjaan bekisting pondasi, sloof, kolom, balok, plat, dan sheerwall.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Struktur" data-search="wiremesh tulangan besi jaring anyaman" data-tool-card="" href="menu/wiremesh.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-diagram-3"></i></div>
+<span class="tool-badge">Struktur</span>
+</div>
+<h3>Wiremesh</h3>
+<p>Hitung kebutuhan pemasangan jaring anyaman tulangan tunggal.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Struktur" data-search="beton pracetak panel joint komponen pemasangan pemindahan" data-tool-card="" href="menu/beton-pracetak.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-boxes"></i></div>
+<span class="tool-badge">Struktur</span>
+</div>
+<h3>Beton Pracetak</h3>
+<p>Komponen pracetak, joint, pemindahan, dan pemasangan elemen beton.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Struktur" data-search="baja aluminium rangka hollow talang rolling door baja ringan logam" data-tool-card="" href="menu/baja-logam.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-hammer"></i></div>
+<span class="tool-badge">Struktur</span>
+</div>
+<h3>Baja, Aluminium, dan Rangka</h3>
+<p>Baja profil, rolling door, talang, hollow, dan baja ringan.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Dinding" data-search="bata dinding pasangan conblock bata ringan rooster" data-tool-card="" href="menu/dinding.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-bricks"></i></div>
+<span class="tool-badge">Dinding</span>
+</div>
+<h3>Pasangan Dinding</h3>
+<p>Bata merah, bata ringan, conblock, dan rooster untuk pekerjaan dinding.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Dinding" data-search="plester finishing skoning kamprotan siar berapen" data-tool-card="" href="menu/plester-finishing.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-border-style"></i></div>
+<span class="tool-badge">Dinding</span>
+</div>
+<h3>Plesteran dan Finishing</h3>
+<p>Berapen, skoning, plester, kamprotan, dan pekerjaan siar.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Finishing" data-search="paving pavingblock block beton halaman" data-tool-card="" href="menu/paving-pasangan.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-grid-1x2"></i></div>
+<span class="tool-badge">Finishing</span>
+</div>
+<h3>Paving Block</h3>
+<p>Paving block natural dan berwarna untuk kebutuhan area luar.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Finishing" data-search="keramik lantai dinding granit marmer plint ubin wallpaper parket vinyl" data-tool-card="" href="menu/lantai-keramik.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-grid-3x3-gap"></i></div>
+<span class="tool-badge">Finishing</span>
+</div>
+<h3>Penutup Lantai dan Dinding</h3>
+<p>Ubin, keramik, granit, marmer, karpet, parket, vynil, dan penutup dinding.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Finishing" data-search="langit plafon atap partisi rangka penutup atap" data-tool-card="" href="menu/langit-atap.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-house-up"></i></div>
+<span class="tool-badge">Finishing</span>
+</div>
+<h3>Langit-langit dan Atap</h3>
+<p>Plafon, partisi, rangka atap, dan penutup atap.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Finishing" data-search="kayu kusen rangka atap lisplank dinding" data-tool-card="" href="menu/kayu-kusen.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-tree"></i></div>
+<span class="tool-badge">Finishing</span>
+</div>
+<h3>Kayu, Kusen, dan Rangka</h3>
+<p>Kusen kayu, rangka atap kayu, lisplank, dan dinding kayu.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Finishing" data-search="pintu jendela kusen kaca engsel kunci rel aksesoris" data-tool-card="" href="menu/pintu-jendela-kaca.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-door-open"></i></div>
+<span class="tool-badge">Finishing</span>
+</div>
+<h3>Pintu, Jendela, Kaca</h3>
+<p>Pintu, jendela, kaca, kunci, engsel, rel, dan aksesoris bukaan.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Finishing" data-search="cat pengecatan pelapis dinding plafon" data-tool-card="" href="menu/cat-pelapis.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-palette"></i></div>
+<span class="tool-badge">Finishing</span>
+</div>
+<h3>Cat dan Pelapis</h3>
+<p>Pekerjaan pengecatan dan pelapis berbasis data AHSP.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Sanitair" data-search="sanitair closet wastafel urinoir bak mandi bak kontrol" data-tool-card="" href="menu/sanitair.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-droplet"></i></div>
+<span class="tool-badge">Sanitair</span>
+</div>
+<h3>Sanitair</h3>
+<p>Closet, wastafel, urinoir, bak mandi, dan bak kontrol.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Sanitair" data-search="pipa kran drainase pvc galvanis limbah air bersih" data-tool-card="" href="menu/pipa-air.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-water"></i></div>
+<span class="tool-badge">Sanitair</span>
+</div>
+<h3>Pipa, Kran, dan Drainase</h3>
+<p>Pipa galvanis, PVC AW, pipa limbah, kran, dan floor drain.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Elektrikal" data-search="elektrikal listrik mccb titik lampu instalasi" data-tool-card="" href="menu/elektrikal.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-lightning-charge"></i></div>
+<span class="tool-badge">Elektrikal</span>
+</div>
+<h3>Elektrikal</h3>
+<p>MCCB dan titik lampu dari data AHSP untuk pekerjaan elektrikal.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Dinding" data-search="acian semen dinding praktis" data-tool-card="" href="menu/acian.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-brush"></i></div>
+<span class="tool-badge">Dinding</span>
+</div>
+<h3>Acian Praktis</h3>
+<p>Rumus praktis acian dari versi awal SipilMU.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+<a class="tool-card" data-category="Struktur" data-search="urugan tanah volume galian timbunan" data-tool-card="" href="menu/urungantanah.html">
+<div class="tool-card-top">
+<div class="tool-icon"><i class="bi bi-cone-striped"></i></div>
+<span class="tool-badge">Struktur</span>
+</div>
+<h3>Urugan Tanah Praktis</h3>
+<p>Rumus volume urugan tanah dari versi awal SipilMU.</p>
+<strong>Hitung Sekarang <i class="bi bi-arrow-right"></i></strong>
+</a>
+</div>
+<div class="empty-state compact-empty" hidden="" id="searchEmpty">
+<div><i class="bi bi-search"></i><h3>Kalkulator tidak ditemukan</h3><p>Coba kata kunci lain, misalnya beton, dinding, keramik, pipa, atau elektrikal.</p></div>
+</div>
+</div>
+</section>
+<section class="section-pad compact-pad">
+<div class="container-wide feature-grid">
+<article class="feature-card"><i class="bi bi-file-earmark-spreadsheet"></i><h3>Sumber data jelas</h3><p>Koefisien diambil dari sheet ANALISA pada file AHSP yang sudah tersedia di proyek.</p></article>
+<article class="feature-card"><i class="bi bi-list-check"></i><h3>Hasil lebih lengkap</h3><p>Output memisahkan bahan, tenaga kerja, alat, koefisien, harga contoh, dan total estimasi.</p></article>
+<article class="feature-card"><i class="bi bi-phone"></i><h3>Nyaman di HP</h3><p>Layout responsif, tombol besar, riwayat, WhatsApp, dan cetak hasil tetap mudah dipakai.</p></article>
+</div>
+<div class="container-wide">
+<div class="cta-card">
+<div>
+<h2>Butuh bantuan atau ingin memberi saran?</h2>
+<p>Kirim masukan agar SipilMU bisa terus ditingkatkan dan tetap ringan digunakan.</p>
+</div>
+<a class="btn btn-primary" href="menu/kontak.html"><i class="bi bi-envelope"></i> Hubungi SipilMU</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer" id="kontak">
+<div class="footer-inner">
+<div>
+<h3>SipilMU</h3>
+<p>Kalkulator konstruksi berbasis koefisien AHSP untuk membantu estimasi kebutuhan tenaga, bahan, peralatan, dan biaya pekerjaan.</p>
+</div>
+<div>
+<h4>Menu cepat</h4>
+<div class="footer-links">
+<a href="index.html#kalkulator"><i class="bi bi-grid"></i> Lihat Kalkulator</a>
+<a href="menu/riwayat.html"><i class="bi bi-clock-history"></i> Riwayat Perhitungan</a>
+<a href="menu/tentang.html"><i class="bi bi-info-circle"></i> Tentang SipilMU</a>
+<a href="menu/sawer.html"><i class="bi bi-heart"></i> Dukung Pengembangan</a>
+</div>
+</div>
+<div>
+<h4>Kontak</h4>
+<div class="footer-links">
+<a href="mailto:pr0165341@gmail.com"><i class="bi bi-envelope"></i> pr0165341@gmail.com</a>
+<a href="tel:085853880228"><i class="bi bi-telephone"></i> 085853880228</a>
+<a href="menu/kontak.html"><i class="bi bi-chat-dots"></i> Halaman Kontak</a>
+<p><i class="bi bi-geo-alt"></i> Slahung, Ponorogo, Jawa Timur</p>
+</div>
+</div>
+</div>
+<div class="copyright">© <span data-year=""></span> SipilMU. All Rights Reserved.</div>
+</footer>
+<script src="ahsp-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
