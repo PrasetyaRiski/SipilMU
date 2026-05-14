@@ -1,55 +1,69 @@
-# SipilMU
+# SipilMU - Kalkulator Konstruksi
 
-SipilMU adalah aplikasi web statis untuk membantu kebutuhan referensi pekerjaan konstruksi, termasuk data AHSP dan navigasi menu pekerjaan sipil.
+Aplikasi web inovatif untuk mengkalkulasi berbagai kebutuhan material konstruksi dengan mudah dan cepat.
 
-Repository: https://github.com/PrasetyaRiski/SipilMU
+## 📋 Tentang
 
-## Fitur Utama
+**SipilMU** adalah kalkulator berbasis web yang dirancang khusus untuk membantu pekerja konstruksi, kontraktor, dan siapa saja yang membutuhkan estimasi kebutuhan material bangunan secara akurat.
 
-- Halaman utama dengan akses cepat ke menu pekerjaan sipil.
-- Data AHSP berbasis JavaScript.
-- Struktur menu terpisah per kategori pekerjaan di folder `menu`.
-- Tampilan responsif berbasis HTML, CSS, dan JavaScript.
+## ✨ Fitur
 
-## Struktur Proyek
+| Fitur | Keterangan |
+|-------|------------|
+| 🧱 **Bata** | Hitung kebutuhan bata untuk dinding |
+| 🪣 **Acian** | Estimasi material untuk acian dinding halus |
+| 🏗️ **Beton & Semen** | Kalkulasi campuran beton dan semen |
+| 🪣 **Plester** | Perkiraan kebutuhan material plesteran |
+| 🏔️ **Urungan Tanah** | Hitung volume tanah untuk urugan |
+| 🌙 **Dark/Light Mode** | Tema gelap dan terang sesuai preferensi |
 
-```text
-.
-|- index.html
-|- style.css
-|- script.js
-|- ahsp-data.js
-|- menu/
+### Segera Hadir
+- 💎 Granit
+- 🎨 Cat
+- 🔧 Upah Kerja
+
+## 🛠️ Teknologi
+
+- **HTML5**
+- **CSS3**
+- **JavaScript (Vanilla)**
+- **Bootstrap Icons**
+
+## 🚀 Cara Menjalankan
+
+1. Clone repository ini:
+   ```bash
+   git clone https://github.com/USERNAME/sipilmu.git
+   ```
+2. Buka file `index.html` di browser, atau gunakan Live Server di VS Code.
+
+## 📁 Struktur Folder
+
+```
+sipilmu/
+├── index.html            # Halaman utama
+├── style.css             # Styling aplikasi
+├── script.js             # Logika tema & menu
+├── README.md
+└── menu/
+    ├── acian.html        # Kalkulator acian
+    ├── bata.html         # Kalkulator bata
+    ├── betonsemen.html   # Kalkulator beton & semen
+    ├── plester.html      # Kalkulator plester
+    ├── sawer.html        # Halaman sawer/donasi
+    ├── tentang.html      # Halaman tentang
+    └── urungantanah.html # Kalkulator urungan tanah
 ```
 
-## Menjalankan Proyek
+## 📞 Kontak
 
-Karena ini proyek statis, Anda bisa menjalankannya dengan cara berikut:
+- **Email:** pr0165341@gmail.com
+- **WhatsApp:** 085853880228
+- **Instagram:** [@ki_rzkii](https://www.instagram.com/ki_rzkii)
+- **Lokasi:** Desa Slahung, Kecamatan Slahung, Kabupaten Ponorogo, Jawa Timur
 
-1. Clone repository:
+## 📄 Lisensi
 
-   ```bash
-   git clone https://github.com/PrasetyaRiski/SipilMU.git
-   ```
+&copy; 2024 SipilMU. All Rights Reserved.
 
-2. Buka folder proyek.
-3. Jalankan `index.html` langsung di browser, atau gunakan extension Live Server di VS Code.
-
-## Deploy
-
-Proyek ini siap di-deploy ke layanan static hosting seperti:
-
-- GitHub Pages
-- Netlify
-- Vercel (Static Site)
-
-## Kontribusi
-
-1. Fork repository ini.
-2. Buat branch fitur baru.
-3. Commit perubahan.
-4. Buat Pull Request.
-
-## Author
-
-- GitHub: https://github.com/PrasetyaRiski
+Proyek ini **tidak bersifat open source**. Dilarang menyalin, memodifikasi, atau mendistribusikan tanpa izin tertulis dari pemilik. Lihat file [LICENSE](LICENSE) untuk detail lengkap.
