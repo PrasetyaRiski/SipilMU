@@ -1,0 +1,32 @@
+SipilMU Modern Clean Version
+
+Perubahan utama:
+1. Landing page dibuat lebih modern dengan hero section, CTA, statistik fitur, dan pencarian kalkulator.
+2. Semua halaman kalkulator memakai layout dua kolom: form input di kiri dan hasil perhitungan di kanan.
+3. Ditambahkan estimasi biaya material. Kolom harga boleh dikosongkan.
+4. Ditambahkan tombol Simpan untuk menyimpan hasil ke riwayat lokal browser.
+5. Ditambahkan halaman Riwayat di menu/riwayat.html.
+6. Ditambahkan tombol WhatsApp untuk membagikan hasil perhitungan.
+7. Ditambahkan tombol Cetak yang dapat dipakai untuk simpan sebagai PDF melalui fitur print browser.
+8. CSS disatukan di style.css agar lebih mudah dirawat.
+9. JavaScript utama disatukan di script.js.
+10. Path file dibuat relatif agar lebih aman saat dibuka dari folder proyek.
+
+Catatan teknis:
+- Data riwayat memakai localStorage browser, jadi belum memakai database online.
+- Hasil perhitungan masih bersifat estimasi.
+- Untuk mengganti QR sawer, ganti file menu/dana.jpg.
+- Untuk mengganti logo, ganti file logo_sipilmu-removebg-preview.png.
+
+File utama:
+- index.html
+- style.css
+- script.js
+- menu/bata.html
+- menu/acian.html
+- menu/betonsemen.html
+- menu/plester.html
+- menu/urungantanah.html
+- menu/riwayat.html
+- menu/tentang.html
+- menu/sawer.html

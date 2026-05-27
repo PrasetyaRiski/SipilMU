@@ -1,0 +1,38 @@
+PANDUAN SINGKAT SIPILMU AHSP MENU LENGKAP
+
+Sumber rumus:
+- File: AHSP PERMEN PUPR NO. 1 TAHUN 2022 BIDANG CIPTA KARYA.xlsx
+- Sheet yang dibaca: ANALISA
+- Jumlah item AHSP terbaca: 288
+
+Rumus utama yang dipakai web:
+1. Kebutuhan tenaga/bahan/peralatan = jumlah pekerjaan x koefisien AHSP.
+2. Jumlah harga contoh = kebutuhan x harga satuan contoh dari spreadsheet.
+3. Total estimasi contoh = total tenaga kerja + bahan + peralatan.
+4. Cadangan bahan hanya diterapkan pada kelompok Bahan.
+
+Menu kalkulator baru:
+- AHSP Umum
+- Persiapan dan Pagar
+- Struktur Beton
+- Beton Mutu
+- Bekisting
+- Wiremesh
+- Beton Pracetak
+- Baja, Aluminium, dan Rangka
+- Pasangan Dinding
+- Plesteran dan Finishing
+- Paving Block
+- Penutup Lantai dan Dinding
+- Langit-langit dan Atap
+- Kayu, Kusen, dan Rangka
+- Pintu, Jendela, Kaca, dan Aksesoris
+- Cat dan Pelapis
+- Sanitair
+- Pipa, Kran, dan Drainase
+- Elektrikal
+- Acian Praktis
+- Urugan Tanah Praktis
+
+Catatan:
+Harga satuan pada hasil adalah harga contoh dari spreadsheet. Untuk proyek nyata, harga perlu disesuaikan dengan lokasi, waktu, dan supplier.
