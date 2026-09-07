@@ -1173,7 +1173,8 @@ textarea.form-control {
     box-shadow: var(--shadow);
   }
   [data-theme="dark"] .bottom-nav { background: rgba(15, 23, 42, 0.94); }
-  .bottom-nav a {
+  .bottom-nav a,
+  .bottom-nav button {
     display: grid;
     place-items: center;
     gap: 2px;
@@ -1185,6 +1186,10 @@ textarea.form-control {
     font-weight: 900;
     line-height: 1.2;
     text-align: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
   }
   .bottom-nav i { font-size: 1.05rem; }
   .bottom-nav a.active {
@@ -1223,7 +1228,8 @@ textarea.form-control {
     padding: 6px;
     border-radius: 18px;
   }
-  .bottom-nav a { min-height: 48px; padding-inline: 2px; }
+  .bottom-nav a,
+  .bottom-nav button { min-height: 48px; padding-inline: 2px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1235,6 +1241,261 @@ textarea.form-control {
   }
 }
 
+/* =========================================================
+   PWA (PROGRESSIVE WEB APP) STYLES
+   ========================================================= */
+.btn-install-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-install-app:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  filter: brightness(1.08);
+}
+
+.btn-install-app i {
+  font-size: 0.95rem;
+}
+
+/* Floating / Sticky Install Banner */
+.pwa-install-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 99;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  animation: pwaSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+  .pwa-install-banner {
+    left: 12px;
+    right: 12px;
+    bottom: calc(var(--bottom-nav-height) + 12px);
+    max-width: none;
+    padding: 10px 14px;
+  }
+}
+
+.pwa-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pwa-banner-icon {
+  flex-shrink: 0;
+}
+
+.pwa-banner-icon img {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: var(--shadow-soft);
+  display: block;
+}
+
+.pwa-banner-text {
+  min-width: 0;
+}
+
+.pwa-banner-text strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.pwa-banner-text p {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+.pwa-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.pwa-banner-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px;
+  font-size: 1.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.pwa-banner-close:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+/* iOS Add to Homescreen Modal */
+.pwa-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  animation: pwaFadeIn 0.2s ease-out;
+}
+
+.pwa-modal {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  max-width: 420px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: pwaPopIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pwa-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: var(--surface-2);
+  color: var(--muted);
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.pwa-modal-close:hover {
+  color: var(--text);
+  background: var(--line);
+}
+
+.pwa-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.pwa-modal-header img {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+}
+
+.pwa-modal-header h3 {
+  font-size: 1.06rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.pwa-modal-header p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.pwa-ios-steps {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.pwa-ios-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.pwa-ios-steps .step-num {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 0.78rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-top: 1px;
+}
+
+.pwa-ios-steps i {
+  color: var(--primary);
+  font-size: 1rem;
+  vertical-align: -1px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+@keyframes pwaSlideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pwaFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pwaPopIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 @media print {
   .header,
   .footer,
@@ -1243,7 +1504,10 @@ textarea.form-control {
   .result-actions,
   .note-box,
   .breadcrumb,
-  .bottom-nav {
+  .bottom-nav,
+  .pwa-install-banner,
+  .pwa-modal-backdrop,
+  .btn-install-app {
     display: none !important;
   }
 

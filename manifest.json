@@ -1,0 +1,70 @@
+{
+  "id": "/?source=pwa",
+  "name": "SipilMU - Kalkulator Konstruksi & AHSP",
+  "short_name": "SipilMU",
+  "description": "Kalkulator konstruksi berbasis AHSP untuk menghitung kebutuhan material, tenaga kerja, alat, volume pekerjaan, dan estimasi biaya bangunan.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#0284c7",
+  "lang": "id",
+  "categories": ["productivity", "utilities", "business"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kalkulator Beton",
+      "short_name": "Beton",
+      "description": "Hitung campuran beton dan semen",
+      "url": "./menu/betonsemen.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Kalkulator Dinding Bata",
+      "short_name": "Bata",
+      "description": "Hitung bata, semen, dan pasir dinding",
+      "url": "./menu/bata.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Kalkulator AHSP PUPR",
+      "short_name": "AHSP",
+      "description": "Analisis Harga Satuan Pekerjaan",
+      "url": "./menu/ahsp.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Riwayat Perhitungan",
+      "short_name": "Riwayat",
+      "description": "Lihat riwayat hasil perhitungan tersimpan",
+      "url": "./menu/riwayat.html",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

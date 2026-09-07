@@ -370,9 +370,111 @@ const SipilMU = (() => {
       if (e.key === 'Escape') closeMenu();
     });
   }
+  function initPWA() {
+    // 1. Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        const swPath = window.location.pathname.includes('/menu/') ? '../service-worker.js' : './service-worker.js';
+        navigator.serviceWorker.register(swPath)
+          .then(reg => {
+            console.log('[SipilMU PWA] ServiceWorker registered with scope:', reg.scope);
+          })
+          .catch(err => {
+            console.warn('[SipilMU PWA] ServiceWorker registration failed:', err);
+          });
+      });
+    }
+
+    // 2. Check if already installed / standalone
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    if (isStandalone) {
+      console.log('[SipilMU PWA] Running in standalone mode.');
+      return;
+    }
+
+    // 3. Install prompt handling
+    let deferredPrompt = null;
+    const installBtns = qsa('[data-pwa-install]');
+    const installBanner = byId('pwaInstallBanner');
+    const bannerCloseBtn = byId('pwaBannerCloseBtn');
+    const bannerInstallBtn = byId('pwaBannerInstallBtn');
+    const iosModal = byId('iosInstallModal');
+    const iosModalClose = byId('iosModalClose');
+    const iosModalOk = byId('iosModalOk');
+
+    const isIos = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
+    const isBannerDismissed = localStorage.getItem('sipilmu_pwa_dismissed') === 'true';
+
+    function showInstallUi() {
+      installBtns.forEach(btn => {
+        btn.style.display = btn.classList.contains('btn-install-app') ? 'inline-flex' : 'grid';
+      });
+      if (installBanner && !isBannerDismissed) {
+        installBanner.style.display = 'flex';
+      }
+    }
+
+    function hideInstallUi() {
+      installBtns.forEach(btn => btn.style.display = 'none');
+      if (installBanner) installBanner.style.display = 'none';
+    }
+
+    function handleInstallClick() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(choiceResult => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('[SipilMU PWA] User accepted installation');
+            hideInstallUi();
+          }
+          deferredPrompt = null;
+        });
+      } else if (isIos) {
+        if (iosModal) iosModal.style.display = 'flex';
+      } else {
+        // Fallback for browsers that don't trigger beforeinstallprompt directly
+        alert('Untuk menginstal SipilMU:\n1. Buka menu browser Anda (ikon titik tiga di kanan atas).\n2. Pilih "Instal aplikasi" atau "Tambahkan ke Layar Utama".');
+      }
+    }
+
+    window.addEventListener('beforeinstallprompt', e => {
+      e.preventDefault();
+      deferredPrompt = e;
+      showInstallUi();
+    });
+
+    if (isIos && !isStandalone) {
+      showInstallUi();
+    }
+
+    window.addEventListener('appinstalled', () => {
+      deferredPrompt = null;
+      hideInstallUi();
+      console.log('[SipilMU PWA] SipilMU installed successfully');
+    });
+
+    installBtns.forEach(btn => btn.addEventListener('click', handleInstallClick));
+    bannerInstallBtn?.addEventListener('click', handleInstallClick);
+
+    bannerCloseBtn?.addEventListener('click', () => {
+      if (installBanner) installBanner.style.display = 'none';
+      localStorage.setItem('sipilmu_pwa_dismissed', 'true');
+    });
+
+    iosModalClose?.addEventListener('click', () => {
+      if (iosModal) iosModal.style.display = 'none';
+    });
+    iosModalOk?.addEventListener('click', () => {
+      if (iosModal) iosModal.style.display = 'none';
+    });
+    iosModal?.addEventListener('click', e => {
+      if (e.target === iosModal) iosModal.style.display = 'none';
+    });
+  }
+
   function initYear() { qsa('[data-year]').forEach(el => el.textContent = new Date().getFullYear()); }
   function initClearHistory() { qs('#clear-history')?.addEventListener('click', () => { localStorage.removeItem('sipilmu_history'); renderHistory(); }); }
-  function init() { initTheme(); initMenu(); initSearch(); initCalculator(); renderHistory(); initClearHistory(); initYear(); }
+  function init() { initTheme(); initMenu(); initSearch(); initCalculator(); renderHistory(); initClearHistory(); initYear(); initPWA(); }
   return { init };
 })();
 document.addEventListener('DOMContentLoaded', SipilMU.init);

@@ -6,6 +6,14 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="SipilMU adalah kalkulator konstruksi berbasis AHSP untuk menghitung kebutuhan material, tenaga kerja, alat, volume pekerjaan, dan estimasi biaya bangunan." name="description"/>
 <title>SipilMU - Kalkulator Material Bangunan dan AHSP</title>
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#0284c7"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="SipilMU"/>
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png"/>
 <link href="https://cdn.jsdelivr.net" rel="preconnect"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
@@ -19,12 +27,13 @@
 </a>
 <div aria-label="Navigasi utama" class="nav-links"><a class="active" href="index.html">Beranda</a><a class="" href="index.html#kalkulator">Kalkulator</a><a class="" href="menu/riwayat.html">Riwayat</a><a class="" href="menu/tentang.html">Tentang</a><a class="" href="menu/kontak.html">Kontak</a></div>
 <div class="nav-actions">
+<button aria-label="Instal Aplikasi SipilMU" class="btn-install-app" data-pwa-install="" style="display:none;" type="button"><i class="bi bi-download"></i> <span>Install App</span></button>
 <button aria-label="Ganti mode gelap atau terang" class="icon-btn" data-theme-toggle="" type="button"><i class="bi bi-circle-half"></i></button>
 <button aria-expanded="false" aria-label="Buka menu" class="mobile-menu-btn" id="mobileMenuBtn" type="button"><i class="bi bi-list"></i></button>
 </div>
 </nav>
-<div class="mobile-panel" id="mobilePanel"><a class="active" href="index.html"><i class="bi bi-house"></i>Beranda</a><a class="" href="index.html#kalkulator"><i class="bi bi-grid"></i>Kalkulator</a><a class="" href="menu/riwayat.html"><i class="bi bi-clock-history"></i>Riwayat</a><a class="" href="menu/tentang.html"><i class="bi bi-info-circle"></i>Tentang</a><a class="" href="menu/kontak.html"><i class="bi bi-envelope"></i>Kontak</a></div>
-<nav aria-label="Navigasi bawah mobile" class="bottom-nav"><a class="active" href="index.html"><i class="bi bi-house"></i><span>Beranda</span></a><a class="" href="index.html#kalkulator"><i class="bi bi-grid"></i><span>Kalkulator</span></a><a class="" href="menu/riwayat.html"><i class="bi bi-clock-history"></i><span>Riwayat</span></a><a class="" href="menu/tentang.html"><i class="bi bi-info-circle"></i><span>Tentang</span></a><a class="" href="menu/kontak.html"><i class="bi bi-envelope"></i><span>Kontak</span></a></nav>
+<div class="mobile-panel" id="mobilePanel"><a class="active" href="index.html"><i class="bi bi-house"></i>Beranda</a><a class="" href="index.html#kalkulator"><i class="bi bi-grid"></i>Kalkulator</a><a class="" href="menu/riwayat.html"><i class="bi bi-clock-history"></i>Riwayat</a><a class="" href="menu/tentang.html"><i class="bi bi-info-circle"></i>Tentang</a><a class="" href="menu/kontak.html"><i class="bi bi-envelope"></i>Kontak</a><a href="javascript:void(0)" data-pwa-install="" style="display:none;"><i class="bi bi-download"></i>Pasang Aplikasi</a></div>
+<nav aria-label="Navigasi bawah mobile" class="bottom-nav"><a class="active" href="index.html"><i class="bi bi-house"></i><span>Beranda</span></a><a class="" href="index.html#kalkulator"><i class="bi bi-grid"></i><span>Kalkulator</span></a><a class="" href="menu/riwayat.html"><i class="bi bi-clock-history"></i><span>Riwayat</span></a><button aria-label="Instal Aplikasi" class="bottom-nav-item" data-pwa-install="" style="display:none;" type="button"><i class="bi bi-download"></i><span>Install</span></button><a class="" href="menu/tentang.html"><i class="bi bi-info-circle"></i><span>Tentang</span></a><a class="" href="menu/kontak.html"><i class="bi bi-envelope"></i><span>Kontak</span></a></nav>
 </header>
 <main>
 <section class="hero">
@@ -298,6 +307,57 @@
 </div>
 <div class="copyright">© <span data-year=""></span> SipilMU. All Rights Reserved.</div>
 </footer>
+
+<!-- PWA Install Banner -->
+<aside aria-label="Instal Aplikasi SipilMU" class="pwa-install-banner" id="pwaInstallBanner" style="display:none;">
+  <div class="pwa-banner-content">
+    <div class="pwa-banner-icon">
+      <img alt="SipilMU" height="44" src="icons/icon-192.png" width="44"/>
+    </div>
+    <div class="pwa-banner-text">
+      <strong>Pasang Aplikasi SipilMU</strong>
+      <p>Akses cepat dari layar utama &amp; tetap bisa hitung tanpa sinyal internet.</p>
+    </div>
+  </div>
+  <div class="pwa-banner-actions">
+    <button class="btn btn-primary btn-sm" id="pwaBannerInstallBtn" type="button">
+      <i class="bi bi-download"></i> Pasang
+    </button>
+    <button aria-label="Tutup notifikasi" class="pwa-banner-close" id="pwaBannerCloseBtn" type="button">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+</aside>
+
+<!-- iOS Safari Add to Homescreen Modal -->
+<div aria-modal="true" class="pwa-modal-backdrop" id="iosInstallModal" role="dialog" style="display:none;">
+  <div class="pwa-modal">
+    <button aria-label="Tutup panduan" class="pwa-modal-close" id="iosModalClose" type="button"><i class="bi bi-x-lg"></i></button>
+    <div class="pwa-modal-header">
+      <img alt="SipilMU Logo" height="52" src="icons/icon-192.png" width="52"/>
+      <div>
+        <h3>Pasang di iPhone / iPad</h3>
+        <p>Gunakan SipilMU seperti aplikasi bawaan</p>
+      </div>
+    </div>
+    <ol class="pwa-ios-steps">
+      <li>
+        <span class="step-num">1</span>
+        <span>Ketuk tombol <strong>Bagikan</strong> (ikon <i class="bi bi-share"></i>) di menu Safari bawah.</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span>Pilih opsi <strong>Tambah ke Layar Utama</strong> (ikon <i class="bi bi-plus-square"></i>).</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span>Ketuk <strong>Tambah</strong> di kanan atas. Selesai!</span>
+      </li>
+    </ol>
+    <button class="btn btn-primary w-full" id="iosModalOk" type="button">Saya Mengerti</button>
+  </div>
+</div>
+
 <script src="ahsp-data.js"></script>
 <script src="script.js"></script>
 </body>
